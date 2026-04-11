@@ -1,0 +1,25 @@
+# pliki wykonywalne
+*.exe
+*.out
+*.app
+
+# pliki obiektowe
+*.o
+*.obj
+
+# buildy
+/build/
+/bin/
+/dist/
+
+# cmake
+CMakeFiles/
+CMakeCache.txt
+cmake-build-*/
+
+# IDE
+.vscode/
+.idea/
+
+# systemowe
+.DS_Store
