@@ -1,0 +1,12 @@
+na ocene 5.0
+algorytmy do napisania: 
+sortowanie kubełkowe, szybkie, shella (do nauki bo nie wiem co to)
+struktury danych do zaimplementowania:
+tablica, lista jedno i dwukierunkowa
+main:
+tryb testu -> argumenty (wywolania trybu, jakie sortowanie, plik z danymi), pojedyncze wywolanie sortowania, zamiast zapisu do csv, zwykly stdout
+tryb badań -> argumenty (tryb, jakie sortowanie, plik z danymi/katalog plików/generowanie losowych danych, liczba wywołań, plik do zapisu wyników)
+tryb pomocy -> uruchamia sie przy blednym podaniu argumentów
+w main argumenty, wywoluja konkretna funkcje test(), research(), help to poprostu cout
+
+format zapisu danych badania  |data i godzina wykonania badania; parametry wywołania ( jakie sortowanie ile elementow) ; czas dzialania 
