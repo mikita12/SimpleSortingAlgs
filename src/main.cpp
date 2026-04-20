@@ -1,30 +1,39 @@
+#include "List1.h"
 #include <iostream>
-#include "../include/Array.h"
 
 int main() {
-    Array<int> arr(2);
+  List1<int> list;
 
-    arr.push_back(5);
-    arr.push_back(10);
-    arr.push_back(15); // sprawdza realloc
+  // 🔹 test push_back
+  list.push_back(5);
+  list.push_back(10);
+  list.push_back(15);
 
-    std::cout << "Size: " << arr.get_size() << std::endl;
+  // 🔹 test push_front
+  list.push_front(1);
+  list.push_front(0);
 
-    for(int i = 0; i < arr.get_size(); i++) {
-        std::cout << arr[i] << " ";
-    }
+  std::cout << "Lista po push_back i push_front: " << std::endl;
 
-    std::cout << std::endl;
+  // 🔹 przejście po liście
+  Node<int> *cp = list.get_head(); // potrzebujesz accessor 👀
+  while (cp != nullptr) {
+    std::cout << cp->data << " ";
+    cp = cp->next;
+  }
+  std::cout << std::endl;
 
-    // test modyfikacji
-    arr[1] = 99;
+  // 🔹 test free
+  list.freeList1();
 
-    std::cout << "After change: ";
-    for(int i = 0; i < arr.get_size(); i++) {
-        std::cout << arr[i] << " ";
-    }
+  std::cout << "Po freeList1 (powinno nic nie wypisac): " << std::endl;
 
-    std::cout << std::endl;
+  cp = list.get_head();
+  while (cp != nullptr) {
+    std::cout << cp->data << " ";
+    cp = cp->next;
+  }
+  std::cout << std::endl;
 
-    return 0;
+  return 0;
 }
