@@ -51,4 +51,37 @@ public:
     cp->next = node;
     tail->prev = node;
   }
+
+  void push_front(const T &value){
+    
+    Node<T> *node = (Node<T> *)malloc(sizeof(Node<T>));
+    node->data = value;
+
+    Node<T> *cp = head->next;
+
+    node->next = cp;
+    node->prev = head;
+
+    cp->prev = node;
+    head->next = node;
+  }
+
+  T get_last(){
+
+    if(tail->prev == head){
+      return NULL;
+    }
+
+    return tail->prev->data;
+  }
+
+  T get_front(){
+    
+    if(tail->prev == head){
+      return NULL;
+    }
+
+    return head->next->data;
+  }
+
 };
