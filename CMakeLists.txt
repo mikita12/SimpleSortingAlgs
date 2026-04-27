@@ -4,6 +4,8 @@ project(ListProject)
 
 set(CMAKE_CXX_STANDARD 17)
 
+add_compile_options(-Wall -Wextra -Werror)
+
 include_directories(include)
 
 add_executable(main
