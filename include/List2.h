@@ -18,6 +18,8 @@ private:
 public:
   List2() { init(); }
 
+  ~List2() { freeList2(); }
+
   void init() {
     head = (Node<T> *)malloc(sizeof(Node<T>));
 
@@ -82,7 +84,7 @@ public:
     return head->next->data;
   }
 
-  void my_free() {
+  void freeList2() {
     Node<T> *cp = head->next;
 
     while (cp != tail) {
@@ -90,5 +92,18 @@ public:
       free(cp);
       cp = next;
     }
+  }
+
+  Node<T> *get_head() { return head; }
+  Node<T> *get_tail() { return tail; }
+
+  int get_size() const {
+    int count = 0;
+    Node<T> *cp = head->next;
+    while (cp != tail) {
+      count++;
+      cp = cp->next;
+    }
+    return count;
   }
 };

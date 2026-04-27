@@ -69,4 +69,16 @@ public:
   }
 
   Node<T> *get_head() { return head; }
+
+  int get_size() const {
+    int count = 0;
+    Node<T> *cp = head;
+    while (cp != nullptr) {
+      count++;
+      cp = cp->next;
+    }
+    return count;
+  }
+
+  
 };
