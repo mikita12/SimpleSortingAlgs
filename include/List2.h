@@ -17,8 +17,7 @@ private:
 
 public:
   List2() {
-    head = nullptr;
-    tail = nullptr;
+    init();
   }
 
   void init() {
@@ -40,17 +39,6 @@ public:
   }
 
   void push_back(const T &value) {
-
-    if (head == nullptr && tail == nullptr) {
-      init();
-      Node<T> *node = (Node<T> *)malloc(sizeof(Node<T>));
-      tail->prev = node;
-      head->next = node;
-      node->data = value;
-      node->prev = head;
-      node->next = tail;
-      return;
-    }
 
     Node<T> *node = (Node<T> *)malloc(sizeof(Node<T>));
     node->data = value;
