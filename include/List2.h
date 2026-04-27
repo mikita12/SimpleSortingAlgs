@@ -16,9 +16,7 @@ private:
   Node<T> *tail;
 
 public:
-  List2() {
-    init();
-  }
+  List2() { init(); }
 
   void init() {
     head = (Node<T> *)malloc(sizeof(Node<T>));
@@ -52,8 +50,8 @@ public:
     tail->prev = node;
   }
 
-  void push_front(const T &value){
-    
+  void push_front(const T &value) {
+
     Node<T> *node = (Node<T> *)malloc(sizeof(Node<T>));
     node->data = value;
 
@@ -66,22 +64,31 @@ public:
     head->next = node;
   }
 
-  T get_last(){
+  T get_last() {
 
-    if(tail->prev == head){
+    if (tail->prev == head) {
       return NULL;
     }
 
     return tail->prev->data;
   }
 
-  T get_front(){
-    
-    if(tail->prev == head){
+  T get_front() {
+
+    if (tail->prev == head) {
       return NULL;
     }
 
     return head->next->data;
   }
 
+  void my_free() {
+    Node<T> *cp = head->next;
+
+    while (cp != tail) {
+      Node<T> *next = cp->next;
+      free(cp);
+      cp = next;
+    }
+  }
 };
