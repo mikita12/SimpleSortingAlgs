@@ -9,4 +9,79 @@ tryb badań -> argumenty (tryb, jakie sortowanie, plik z danymi/katalog plików/
 tryb pomocy -> uruchamia sie przy blednym podaniu argumentów
 w main argumenty, wywoluja konkretna funkcje test(), research(), help to poprostu cout
 
-format zapisu danych badania  |data i godzina wykonania badania; parametry wywołania ( jakie sortowanie ile elementow) ; czas dzialania 
+format zapisu danych badania  |data i godzina wykonania badania; parametry wywołania ( jakie sortowanie ile elementow) ; czas dzialania
+
+co ai gada, stan na przed skonczeniem list2
+Zaraz sprawdzę Twoje repozytorium.Strona ładuje się dynamicznie. Pozwól mi sprawdzić strukturę plików bezpośrednio:Okej, mam pełny obraz. Oto rozbicie co masz vs. co jeszcze trzeba:
+
+## Co już masz ✅
+
+**Struktury danych (podstawowe):**
+- ✅ `Array.h` – tablica z dynamicznym capacity, szablonowa, push_back, operatory
+- ✅ `List1.h` – lista jednokierunkowa, push_back, push_front, freeing, szablonowa
+- ⚠️ `List2.h` – lista dwukierunkowa **w stanie zalążkowym** (tylko deklaracja Node, niezakończona)
+
+**Setup:**
+- ✅ CMakeLists.txt istnieje
+- ✅ C++17
+- ✅ Struktura katalogów (include, src)
+
+---
+
+## Co musisz dodać/dokończyć 🔴
+
+**1. Ukończyć struktury danych**
+   - **List2** – zaimplementować push_back, push_front, get_last, free, get_head
+   - Opcjonalnie (na ocenę 5.0): **Kolejka (Queue)**, **Stos (Stack)**, **Drzewo binarne** – wszystkie szablonowe //tego chyba nie
+
+**2. Zaimplementować algorytmy sortowania (na ocenę 5.0)**
+   - Shell Sort (z dwoma różnymi wzorami na odstępy)
+   - Quick Sort (z trzema wersjami pivota: losowy, środkowy, skrajny)
+   - Bucket Sort
+   - (na ocenę 3.0/4.0: Cocktail Sort, Merge Sort, Insertion Sort)
+
+**3. System obsługi parametrów**
+   - Pobrać bibliotekę z: https://gitlab.com/mrozo94/for-students (zawiera parser argumentów)
+   - Zintegować w main.cpp do obsługi:
+     - Tryb testu: `-t <algorytm> <struktura> <plik_wejściowy> [plik_wyjściowy]`
+     - Tryb badań: `-r <algorytm> <struktura> <rozmiar> <typ_danych> <liczba_powtórzeń> <plik_csv_wyników>`
+     - Tryb pomocy: `-h`
+
+**4. Mierzenie czasu**
+   - std::chrono (mikrosekundy)
+   - Mierzyć **tylko** czas sortowania, nie I/O
+
+**5. Badania empiryczne (zgodn. z projektem)**
+   - **Badanie α** (na 5.0): Shell Sort – dwa wzory; Quick Sort – trzy pivoty
+   - **Badanie A**: Wpływ rozmiaru zbioru (4+ różne rozmiary)
+   - **Badanie B**: Wpływ rozkładu (losowy, rosnący, malejący, 50% posortowany)
+   - **Badanie C**: Wpływ typu danych (int, float/double, unsigned, char/string)
+   - **Badanie Ω** (na 5.0): Porównanie wszystkich struktur danych
+
+**6. Zapis wyników do CSV**
+   - Nagłówek: data/godzina | parametry (algorytm, rozmiar, typ) | min/avg/max czas
+   - Dołączać wyniki iteracyjnie
+
+**7. Weryfikacja poprawności sortowania**
+   - Funkcja sprawdzająca czy tablica/lista jest posortowana rosnąco
+
+**8. Flagi kompilatora**
+   - Dodaj `-Wall -Wextra -Werror` do CMakeLists.txt
+
+**9. Czyszczenie kodu**
+   - Usunąć debugowe prinnty z List1.h (`"nuh uh"`)
+   - Spójne formatowanie
+   - Komentarze
+
+---
+
+## Priorytet pracy (od teraz)
+
+1. **Dokończyć List2** (15 min)
+2. **Zintegować parser parametrów** z for-students (30 min)
+3. **Zaimplementować 3 algorytmy** na ocenę 5.0 (2-3h)
+4. **Dodać obsługę csv + mierzenie czasu** (1h)
+5. **Kod do testowania poszczególnych badań** (1h)
+6. **Flagi kompilatora + czyszczenie** (30 min)
+
+Chcesz że zacznę od konkretnego punktu? Np. od dokończenia List2 + zaimplementowania algorytmów?
