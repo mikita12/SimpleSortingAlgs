@@ -1,4 +1,4 @@
-na ocene 5.0
+na ocene 4.0
 algorytmy do napisania: 
 sortowanie kubełkowe, szybkie, shella (do nauki bo nie wiem co to)
 struktury danych do zaimplementowania:
@@ -85,3 +85,26 @@ Zaraz sprawdzę Twoje repozytorium.Strona ładuje się dynamicznie. Pozwól mi s
 6. **Flagi kompilatora + czyszczenie** (30 min)
 
 Chcesz że zacznę od konkretnego punktu? Np. od dokończenia List2 + zaimplementowania algorytmów?
+
+
+jak zapisywac do plikow csv
+
+CSVWriter csv("badanie_a.csv");
+csv.writeHeader("Size,MinTime,AvgTime,MaxTime");
+csv.appendResult("5000,1234,1456,1789");
+csv.appendResult("10000,3456,3678,4012");
+
+CSVWriter csv("badanie_b.csv");
+csv.writeHeader("Distribution,MinTime,AvgTime,MaxTime");
+csv.appendResult("random,5234,5456,5789");
+csv.appendResult("ascending,234,245,267");
+
+CSVWriter csv("badanie_c.csv");
+csv.writeHeader("DataType,MinTime,AvgTime,MaxTime");
+csv.appendResult("int,5234,5456,5789");
+csv.appendResult("float,5345,5567,5890");
+
+CSVWriter csv("badanie_omega.csv");
+csv.writeHeader("Structure,MinTime,AvgTime,MaxTime");
+csv.appendResult("array,5234,5456,5789");
+csv.appendResult("list1,25234,25456,25789");

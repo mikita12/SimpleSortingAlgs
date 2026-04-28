@@ -1,7 +1,7 @@
 #pragma once
 #include "Array.h"
 
-template <typename T> int partition(Array<T> &arr, int low, int high) {
+template <typename T> T partitionArr(Array<T> &arr, int low, int high) {
   T pivot = arr[high];
   int i = low - 1;
 
@@ -21,7 +21,7 @@ template <typename T> int partition(Array<T> &arr, int low, int high) {
   return i + 1;
 }
 
-template <typename T> void quickSortHelper(Array<T> &arr, int low, int high) {
+template <typename T> void quickSortHelperArr(Array<T> &arr, int low, int high) {
   if (low < high) {
     int pi = partition(arr, low, high);
     quickSortHelper(arr, low, pi - 1);
@@ -29,7 +29,7 @@ template <typename T> void quickSortHelper(Array<T> &arr, int low, int high) {
   }
 }
 
-template <typename T> void quickSort(Array<T> &arr) {
+template <typename T> void quickSortArr(Array<T> &arr) {
   if (arr.get_size() > 0) {
     quickSortHelper(arr, 0, arr.get_size() - 1);
   }
