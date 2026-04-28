@@ -106,4 +106,9 @@ public:
     }
     return count;
   }
+
+  void set_head_tail(Node<T> *newHead, Node<T> *newTail) {//do qs
+    head = newHead;
+    tail = newTail;
+  }
 };

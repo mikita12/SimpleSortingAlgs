@@ -17,6 +17,8 @@ private:
 public:
   List1() { head = nullptr; }
 
+  ~List1() { freeList1(); }
+
   void push_back(const T &value) {
     if (head == nullptr) {
       Node<T> *node = (Node<T> *)malloc(sizeof(Node<T>));
@@ -80,5 +82,5 @@ public:
     return count;
   }
 
-  
+  void set_head(Node<T> *newHead) { head = newHead; } // do qs
 };
